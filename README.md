@@ -27,7 +27,7 @@ The trained model is available in this repository at:
 ## Quick Start
 REG-FOCUS requires a Python 3.10 environment with all required dependencies installed. In the following examples, CD14 monocytes (CD14mono) are used as a representative cell type.
 
-**(1)Prepare the input variant file for prediction**
+**(1)Prepare the input variant file for prediction**<br>
 Create a TSV file containing the variants to be evaluated by REG-FOCUS.
 Example:
 > SNP_for_pred.tsv
@@ -40,7 +40,7 @@ chr1	897538	T	C	chr1:897538:T:C
 ......
 ```
 
-**(2)Generate allele-specific feature representations using the fine-tuned models**
+**(2)Generate allele-specific feature representations using the fine-tuned models**<br>
 REG-FOCUS extracts allele-specific regulatory features using two fine-tuned models: DNABERT2 and ChromBPNet.
 > Generate DNABERT2 features
 ```
@@ -67,7 +67,7 @@ python ./scripts/DNABERT2_ChromBPNet_feature_merged.py \
     --output_file merged_features.csv
 ```
 
-**(3) Predict regulatory effects using the classifier**
+**(3) Predict regulatory effects using the classifier**<br>
 The classifier model assigns each variant to one of three regulatory outcome categories:
 - **0 (Up)**: Increased chromatin accessibility  
 - **1 (Down)**: Decreased chromatin accessibility  
