@@ -26,6 +26,7 @@ The trained model is available in this repository at:
 
 ## Quick Start
 REG-FOCUS requires a Python 3.10 environment with all required dependencies installed. In the following examples, CD14 monocytes (CD14mono) are used as a representative cell type.
+
 **(1)Prepare the input variant file for prediction**
 Create a TSV file containing the variants to be evaluated by REG-FOCUS.
 Example:
