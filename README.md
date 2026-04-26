@@ -1,7 +1,7 @@
-# REG-FOCUS : Regulatory Effect based on Fusion Of Chromatin and Underlying Sequences
+# REG-FOCUS : Regulatory Effects based on Fusion Of Chromatin and Underlying Sequences
 
 ## Introduction
-REG-FOCUS is a sequence-to-function model framework designed to predict regulatory effect of genetic variants across celltypes.  
+REG-FOCUS is a sequence-to-function model framework designed to predict regulatory effects of genetic variants across celltypes.  
 ![REG-FOCUS Model Schema](REG-FOCUS_model_schema.png)
 REG-FOCUS builds upon two complementary pretrained sequence-based models: DNABERT2 and ChromBPNet. By fine-tuning these models on cell-type–specific chromatin accessibility data, REG-FOCUS learns regulatory representations tailored to distinct immune cell types.These representations are fused into context-aware features.Crucially, instead of relying solely on representation learning, we introduce direct functional supervision by coupling these features with experimentally derived variant effect measurements and feeding them into a meta-learned tabular reasoning model, TabPFN. Leveraging its meta-learning capability, REG-FOCUS learns a transferable feature-to-effect mapping across cell types and assigns each SNP to one of three regulatory outcome categories: up, down or neutral.
 
@@ -71,7 +71,7 @@ python ./scripts/DNABERT2_ChromBPNet_feature_merged.py \
 The classifier model assigns each variant to one of three regulatory outcome categories:
 - **0 (Up)**: Increased chromatin accessibility  
 - **1 (Down)**: Decreased chromatin accessibility  
-- **2 (Neutral)**: No predicted regulatory effect
+- **2 (Neutral)**: No predicted regulatory effects
 
 ```
 python ./scripts/TabPFN_testSNP_classifier_pred.py --input_file merged_features.csv
