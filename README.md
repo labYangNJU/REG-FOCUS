@@ -1,4 +1,4 @@
-# REG-FOCUS : Regulatory Effects based on Fusion Of Chromatin and Underlying Sequences
+# REG-FOCUS (REGulatory effects based on Fusion Of Chromatin and Underlying Sequences)
 
 ## Introduction
 REG-FOCUS is a sequence-to-function model framework designed to predict regulatory effects of genetic variants across celltypes.  
