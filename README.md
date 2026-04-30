@@ -2,6 +2,7 @@
 
 ## Introduction
 REG-FOCUS is a transferable model framework designed to predict regulatory effects of genetic variants across celltypes.  
+
 ![REG-FOCUS Model Schema](REG-FOCUS_model_schema.png)
 REG-FOCUS integrates two complementary representations, a DNA sequence foundation model (DNABERT2) that captures sequence grammar, and a chromatin-specialized model (ChromBPNet) that encodes cell-type-specific chromatin accessibility landscapes. These representations are fused into context-aware features. Crucially, rather than relying solely on inference from reference sequences, we introduce direct functional supervision by coupling these features with experimentally derived variant effect measurement and feeding them into a meta-learned tabular reasoning model, TabPFN. Leveraging its meta-learning capability, REG-FOCUS learns a transferable feature-to-effect mapping across cell types and assigns each variant to one of three regulatory outcome categories: up, down or neutral.
 
