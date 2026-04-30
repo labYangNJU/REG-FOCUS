@@ -8,18 +8,18 @@ REG-FOCUS integrates two complementary representations, a DNA sequence foundatio
 
 
 ## Model 
-Due to GitHub file size limitations, the full datasets and the model in this study are hosted on Zenodo. All resources can be accessed via the following DOI: [10.5281/zenodo.19068193](https://zenodo.org/uploads/19068193)
-### REG-FOCUS Fine-tuned model
-We provide task-specific fine-tuned models trained on our PBMC chromatin accessibility dataset:
+The full datasets and the model in this study are hosted on Zenodo. All resources can be accessed via the following DOI: [10.5281/zenodo.19068193](https://zenodo.org/uploads/19068193)
+### DNBERT2 models fine-tuned for PBMC cell types.
+We provide fine-tuned DNABERT2 models trained on our PBMC chromatin accessibility dataset:
 ```
 ./fine-tuned_model/dnabert2/sc-PBMC
+```
+### ChromBPNet models fine-tuned for PBMC cell types.
+We provide fine-tuned ChromBPNet models trained on our PBMC chromatin accessibility dataset:
+```
 ./fine-tuned_model/chrombpnet/sc-PBMC
 ```
-If you would like to fine-tune the framework on your own datasets, you can obtain the corresponding pre-trained models from the official repositories:
-- DNABERT-2: https://github.com/MAGICS-LAB/DNABERT_2
-- ChromBPNet: https://github.com/kundajelab/chrombpnet 
-
-### REG-FOCUS Classifier model
+### TabPFN classifier model
 The TabPFN model was trained on experimentally validated effect variants from CD14 monocytes and can be extended to other cell types.
 The trained model is available in this repository at:
 ```
@@ -78,6 +78,11 @@ The classifier model assigns each variant to one of three regulatory outcome cat
 ```
 python ./scripts/TabPFN_testSNP_classifier_pred.py --input_file merged_features.csv
 ```
+
+## For other cell types
+If you would like to fine-tune the framework on your own datasets or other cell types, you can fine-tune modules from the official repositories:
+- DNABERT-2: https://github.com/MAGICS-LAB/DNABERT_2
+- ChromBPNet: https://github.com/kundajelab/chrombpnet 
 
 ## Cite
 ```
