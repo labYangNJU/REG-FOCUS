@@ -1,9 +1,10 @@
 # REG-FOCUS (REGulatory effects based on Fusion Of Chromatin and Underlying Sequences)
 
 ## Introduction
-REG-FOCUS is a sequence-to-function model framework designed to predict regulatory effects of genetic variants across celltypes.  
+REG-FOCUS is a transferable model framework designed to predict regulatory effects of genetic variants across celltypes.  
 ![REG-FOCUS Model Schema](REG-FOCUS_model_schema.png)
-REG-FOCUS builds upon two complementary pretrained sequence-based models: DNABERT2 and ChromBPNet. By fine-tuning these models on cell-type–specific chromatin accessibility data, REG-FOCUS learns regulatory representations tailored to distinct immune cell types.These representations are fused into context-aware features.Crucially, instead of relying solely on representation learning, we introduce direct functional supervision by coupling these features with experimentally derived variant effect measurements and feeding them into a meta-learned tabular reasoning model, TabPFN. Leveraging its meta-learning capability, REG-FOCUS learns a transferable feature-to-effect mapping across cell types and assigns each SNP to one of three regulatory outcome categories: up, down or neutral.
+REG-FOCUS integrates two complementary representations, a DNA sequence foundation model (DNABERT2) that captures sequence grammar, and a chromatin-specialized model (ChromBPNet) that encodes cell-type-specific chromatin accessibility landscapes. These representations are fused into context-aware features that jointly model intrinsic sequence potential and extrinsic regulatory environment. Crucially, instead of relying solely on representation learning, we introduce direct functional supervision by coupling these features with experimentally derived variant effect measurement and feeding them into a meta-learned tabular reasoning model, TabPFN. Leveraging its meta-learning capability, REG-FOCUS learns a transferable feature-to-effect mapping across cell types and assigns each SNP to one of three regulatory outcome categories: up, down or neutral.
+
 
 ## Model 
 Due to GitHub file size limitations, the full datasets and the model in this study are hosted on Zenodo. All resources can be accessed via the following DOI: [10.5281/zenodo.19068193](https://zenodo.org/uploads/19068193)
@@ -25,7 +26,7 @@ The trained model is available in this repository at:
 ```
 
 ## Quick Start
-REG-FOCUS requires a Python 3.10 environment with all required dependencies installed. In the following examples, CD14 monocytes (CD14mono) are used as a representative cell type.
+REG-FOCUS requires a Python 3.10 environment with all required dependencies installed. In the following examples, CD14 monocytes are used as a representative cell type.
 
 **(1)Prepare the input variant file for prediction**<br>
 Create a TSV file containing the variants to be evaluated by REG-FOCUS.
@@ -59,7 +60,7 @@ python ./scripts/DNABERT2_testSNP_feature_pred.py \
 ```
 bash ./scripts/ChromBPNet_testSNP_feature_pred.sh --cell CD14mono --list SNP_for_pred.tsv
 ```
-> merged two model feature representations
+> fused two model feature representations
 ```
 python ./scripts/DNABERT2_ChromBPNet_feature_merged.py \
     --chrombpnet_file chrombpnet.tsv \
